@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button, Col, Form, Row, Card, ListGroup } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const ListaFatture = ({ clientsList }) => {
   const [checked, setChecked] = useState(false);
@@ -17,6 +18,8 @@ const ListaFatture = ({ clientsList }) => {
     min: 0,
     max: 0,
   });
+
+  const navigate = useNavigate();
 
   const [fatture, setFatture] = useState(null);
 
@@ -204,7 +207,13 @@ const ListaFatture = ({ clientsList }) => {
                       </ListGroup.Item>
                     </ListGroup>
                   </Card>
-                  <Button className="mb-5 mt-2" style={{ width: "20%" }}>
+                  <Button
+                    className="mb-5 mt-2"
+                    style={{ width: "20%" }}
+                    onClick={() => {
+                      navigate("/dettaglio_fattura/" + fattura.number);
+                    }}
+                  >
                     Modifica
                   </Button>
                 </>
