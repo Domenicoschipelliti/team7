@@ -6,6 +6,7 @@ import Registrazione from "./components/Registrazione";
 import Home from "./components/Home";
 import GestioneFatture from "./components/GestioneFatture";
 import DettaglioFattura from "./components/DettaglioFattura";
+import PaginaClienti from "./components/PaginaClienti";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           path="/dettaglio_fattura/:idFattura"
           element={<DettaglioFattura />}
         />
+        <Route path="/clienti" element={<PaginaClienti />} />
       </Routes>
     </BrowserRouter>
   );

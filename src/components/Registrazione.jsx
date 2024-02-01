@@ -38,7 +38,7 @@ const Registrazione = () => {
         console.log(data);
         alert("registrato correttamente!");
         setTimeout(() => {
-          navigate("/login");
+          navigate("/");
         }, 500);
       })
       .catch((err) => {
