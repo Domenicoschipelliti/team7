@@ -1,6 +1,7 @@
 import { Col, Container, Alert, Row, Form, Button } from "react-bootstrap";
 import NavbarCustom from "./NavbarCustom";
 import { useEffect, useState } from "react";
+import ListaFatture from "./ListaFatture";
 
 const GestioneFatture = () => {
   const [clients, setClients] = useState(null);
@@ -86,7 +87,9 @@ const GestioneFatture = () => {
                 <option>Seleziona cliente</option>
                 {clients.map((client, i) => {
                   return (
-                    <option value={client.clientId}>{client.p_IVA}</option>
+                    <option key={i} value={client.clientId}>
+                      {client.p_IVA}
+                    </option>
                   );
                 })}
               </Form.Select>
@@ -125,7 +128,7 @@ const GestioneFatture = () => {
             <p>Fattura salvata con successo</p>
           </Alert>
         </Col>
-        <Col>{/* DA INSERIRE GESTIONE FATTURE ESISTENTI */}</Col>
+        <ListaFatture clientsList={clients} />
       </Row>
     </Container>
   );
