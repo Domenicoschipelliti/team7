@@ -45,7 +45,7 @@ const Login = () => {
   return (
     <>
       <Container>
-        <Row>
+        <Row className="flex-column">
           <Col>
             <Form
               onSubmit={(e) => {
@@ -79,6 +79,23 @@ const Login = () => {
                 Submit
               </Button>
             </Form>
+          </Col>
+          <Col className="mt-5">
+            <h3>
+              Non hai un account?{" "}
+              <span
+                style={{
+                  textDecoration: "underline",
+                  color: "blue",
+                  cursor: "pointer",
+                }}
+                onClick={() => {
+                  navigate("/registrazione");
+                }}
+              >
+                Registrati
+              </span>
+            </h3>
           </Col>
         </Row>
       </Container>
