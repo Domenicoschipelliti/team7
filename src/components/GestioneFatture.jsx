@@ -6,11 +6,12 @@ import ListaFatture from "./ListaFatture";
 const GestioneFatture = () => {
   const [clients, setClients] = useState(null);
   console.log(clients);
-  const [show, setShow] = useState(false);
 
   const [clientSelected, setClientSelected] = useState(null);
   const [date, setDate] = useState(null);
   const [importo, setImporto] = useState(null);
+
+  const [showCheck, setShowCheck] = useState(false);
 
   const payload = {
     client_id: clientSelected,
@@ -50,7 +51,7 @@ const GestioneFatture = () => {
     })
       .then((res) => {
         if (res.ok) {
-          setShow(true);
+          setShowCheck(!showCheck);
         } else {
           throw new Error("errore nel salvataggio");
         }
@@ -111,22 +112,34 @@ const GestioneFatture = () => {
                 <Form.Label>Importo</Form.Label>
                 <Form.Control type="number" />
               </Form.Group>
-              <Button className="btn-success" type="submit">
-                Salva Fattura
-              </Button>
+              {showCheck ? (
+                <div className="success-animation d-flex justify-content-start">
+                  <svg
+                    className="checkmark"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 52 52"
+                  >
+                    <circle
+                      className="checkmark__circle"
+                      cx="26"
+                      cy="26"
+                      r="25"
+                      fill="none"
+                    />
+                    <path
+                      className="checkmark__check"
+                      fill="none"
+                      d="M14.1 27.2l7.1 7.2 16.7-16.8"
+                    />
+                  </svg>
+                </div>
+              ) : (
+                <Button className="btn-success" type="submit">
+                  Salva Fattura
+                </Button>
+              )}
             </Form>
           )}
-        </Col>
-        <Col className="mt-4">
-          <Alert
-            variant="success"
-            onClose={() => setShow(!show)}
-            dismissible
-            show={show}
-          >
-            <Alert.Heading>Gestione Fatture</Alert.Heading>
-            <p>Fattura salvata con successo</p>
-          </Alert>
         </Col>
         <ListaFatture clientsList={clients} />
       </Row>

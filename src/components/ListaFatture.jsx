@@ -218,8 +218,8 @@ const ListaFatture = ({ clientsList }) => {
             <h3>Fatture selezionate:</h3>
             {fatture.map((fattura, i) => {
               return (
-                <>
-                  <Card key={i}>
+                <Col key={i}>
+                  <Card>
                     <Card.Body>
                       <Card.Text>N. Fattura: {fattura.number}</Card.Text>
                     </Card.Body>
@@ -247,7 +247,7 @@ const ListaFatture = ({ clientsList }) => {
                   >
                     Modifica
                   </Button>
-                </>
+                </Col>
               );
             })}
           </Col>
@@ -258,4 +258,3 @@ const ListaFatture = ({ clientsList }) => {
 };
 
 export default ListaFatture;
-
