@@ -130,11 +130,13 @@ const Home = () => {
                     }}
                   >
                     {i + 1}-{client.contactName}
-                    <p>
-                      {client.addressList.length > 0
-                        ? client.addressList[0].province.nomeProvincia
-                        : ""}
-                    </p>
+                    {client.addressList && (
+                      <p>
+                        {client.addressList.length > 0
+                          ? client.addressList[0].province.nomeProvincia
+                          : ""}
+                      </p>
+                    )}
                   </ListGroup.Item>
                 );
               })}
