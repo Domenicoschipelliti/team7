@@ -52,6 +52,8 @@ const PaginaClienti = () => {
     client_id: clientid,
   };
 
+  console.log(localStorage.getItem("tokenAdmin"));
+
   const saveClient = () => {
     fetch("http://localhost:3009/clients", {
       method: "POST",
