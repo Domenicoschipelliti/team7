@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Col, Container, Row, Form, Button } from "react-bootstrap";
+import { Col, Container, Row, Form, Button, Alert } from "react-bootstrap";
 import NavbarCustom from "./NavbarCustom";
 
 const PaginaClienti = () => {
@@ -24,6 +24,10 @@ const PaginaClienti = () => {
   const [clientid, setClientId] = useState(null);
   const [datiProvince, setDatiprovince] = useState(null);
   const [datComuni, setDatiComuni] = useState(null);
+
+  const [show, setShow] = useState(false);
+
+  const [show2, setShow2] = useState(false);
 
   const payloadCliente = {
     businessType: businessType,
@@ -65,6 +69,7 @@ const PaginaClienti = () => {
         }
       })
       .then((data) => {
+        setShow(!show);
         setClientId(data.clientId);
       })
       .catch((err) => {
@@ -127,6 +132,7 @@ const PaginaClienti = () => {
     })
       .then((res) => {
         if (res.ok) {
+          setShow2(!show2);
           console.log("salvato!");
         } else {
           throw new Error("errore nel salvataggio dei dati");
@@ -247,7 +253,30 @@ const PaginaClienti = () => {
                 value={contactNumber}
               />
             </Form.Group>
-            <Button type="submit">Salva Dati</Button>
+            {show ? (
+              <div className="success-animation d-flex justify-content-start">
+                <svg
+                  className="checkmark"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 52 52"
+                >
+                  <circle
+                    className="checkmark__circle"
+                    cx="26"
+                    cy="26"
+                    r="25"
+                    fill="none"
+                  />
+                  <path
+                    className="checkmark__check"
+                    fill="none"
+                    d="M14.1 27.2l7.1 7.2 16.7-16.8"
+                  />
+                </svg>
+              </div>
+            ) : (
+              <Button type="submit">Salva Dati</Button>
+            )}
           </Form>
         </Col>
         <hr className="my-4"></hr>
@@ -325,7 +354,30 @@ const PaginaClienti = () => {
                   }}
                 />
               </Form.Group>
-              <Button type="submit">Salva indirizzo</Button>
+              {show2 ? (
+                <div className="success-animation d-flex justify-content-start">
+                  <svg
+                    className="checkmark"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 52 52"
+                  >
+                    <circle
+                      className="checkmark__circle"
+                      cx="26"
+                      cy="26"
+                      r="25"
+                      fill="none"
+                    />
+                    <path
+                      className="checkmark__check"
+                      fill="none"
+                      d="M14.1 27.2l7.1 7.2 16.7-16.8"
+                    />
+                  </svg>
+                </div>
+              ) : (
+                <Button type="submit">Salva Indirizzo</Button>
+              )}
             </Form>
           </Col>
         )}
