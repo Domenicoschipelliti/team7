@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import GestioneFatture from "./components/GestioneFatture";
 import DettaglioFattura from "./components/DettaglioFattura";
 import PaginaClienti from "./components/PaginaClienti";
+import DettaglioCLiente from "./components/DettaglioCliente";
 
 function App() {
   return (
@@ -21,6 +22,10 @@ function App() {
           element={<DettaglioFattura />}
         />
         <Route path="/clienti" element={<PaginaClienti />} />
+        <Route
+          path="/dettaglio_cliente/:idCliente"
+          element={<DettaglioCLiente />}
+        />
       </Routes>
     </BrowserRouter>
   );

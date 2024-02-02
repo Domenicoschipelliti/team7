@@ -171,6 +171,7 @@ const ListaFatture = ({ clientsList }) => {
                       setStato(e.target.value);
                     }}
                   >
+                    <option>Seleziona uno stato</option>
                     <option value="Emessa">Emessa</option>
                     <option value="Pagata">Pagata</option>
                     <option value="Da%20Pagare">Da Pagare</option>
@@ -180,7 +181,7 @@ const ListaFatture = ({ clientsList }) => {
               <div className="d-flex align-items-center ">
                 <Form.Check
                   type="checkbox"
-                  label="Per fatturato (min e max)"
+                  label="Per importo (min e max)"
                   onChange={() => handleCheckboxChange("importo")}
                   checked={selectedOption === "importo"}
                   style={{ width: "50%" }}

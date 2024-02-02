@@ -109,7 +109,6 @@ const DettaglioFattura = () => {
                   setStato(e.target.value);
                 }}
               >
-                <option>Seleziona uno stato</option>
                 <option value="Emessa">Emessa</option>
                 <option value="Pagata">Pagata</option>
                 <option value="Da pagare">Da Pagare</option>

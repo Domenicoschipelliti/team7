@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { Col, Card, ListGroup, Modal, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const ClientDetails = ({ data }) => {
-  const [showModal, setShowModal] = useState(false);
-
-  const [listaFattuire, setListaFatture] = useState(null);
-
   console.log(localStorage.getItem("tokenAdmin"));
+
+  const navigate = useNavigate();
 
   return (
     <Col>
@@ -28,6 +27,13 @@ const ClientDetails = ({ data }) => {
         </Card.Body>
         <ListGroup className="list-group-flush"></ListGroup>
       </Card>
+      <Button
+        onClick={() => {
+          navigate("/dettaglio_cliente/" + data.clientId);
+        }}
+      >
+        Modifica
+      </Button>
     </Col>
   );
 };
