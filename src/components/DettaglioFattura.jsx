@@ -64,6 +64,25 @@ const DettaglioFattura = () => {
       });
   };
 
+  // const deletefattura = () => {
+  //   fetch("http://localhost:3009/invoice/" + urlParams.idFattura, {
+  //     method: "DELETE",
+  //     headers: {
+  //       Authorization: localStorage.getItem("tokenAdmin"),
+  //     },
+  //   })
+  //     .then((res) => {
+  //       if (res.ok) {
+  //         console.log(res, "eliminato");
+  //       } else {
+  //         throw new Error("Errore durante l'eliminazione");
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error("Si è verificato un errore durante la richiesta:", error);
+  //     });
+  // };
+
   useEffect(() => {
     getInvoiceDetails();
   }, [urlParams]);

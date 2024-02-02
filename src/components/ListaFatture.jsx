@@ -208,9 +208,6 @@ const ListaFatture = ({ clientsList }) => {
                   </>
                 )}
               </div>
-              <div className="mt-3">
-                <Button type="submit">Cerca</Button>
-              </div>
             </Form>
           </Col>
         )}
