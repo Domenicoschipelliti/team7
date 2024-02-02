@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, Row, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -12,6 +12,8 @@ const Login = () => {
     email: email,
     password: password,
   };
+
+  const [error, setError] = useState(false);
 
   const serverLogin = () => {
     fetch("http://localhost:3009/auth/login", {
@@ -26,6 +28,7 @@ const Login = () => {
           navigate("/home");
           return res.json();
         } else {
+          setError(true);
           throw new Error("errore nel login");
         }
       })
@@ -74,7 +77,9 @@ const Login = () => {
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Password" />
               </Form.Group>
-
+              <Alert show={error} variant="danger">
+                Username o password errati.
+              </Alert>
               <Button variant="primary" type="submit">
                 Submit
               </Button>
