@@ -123,12 +123,18 @@ const Home = () => {
               {clients.map((client, i) => {
                 return (
                   <ListGroup.Item
+                    className="d-flex justify-content-between"
                     key={i}
                     onClick={() => {
                       setSingleClient(client);
                     }}
                   >
                     {i + 1}-{client.contactName}
+                    <p>
+                      {client.addressList.length > 0
+                        ? client.addressList[0].province.nomeProvincia
+                        : ""}
+                    </p>
                   </ListGroup.Item>
                 );
               })}
