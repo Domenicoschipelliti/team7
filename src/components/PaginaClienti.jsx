@@ -164,12 +164,18 @@ const PaginaClienti = () => {
           >
             <Form.Group className="mb-3">
               <Form.Label>Tipo Business</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Es. SPA, SRL.."
-                onChange={(e) => setBusinessType(e.target.value)}
-                value={businessType}
-              />
+              <Form.Select
+                aria-label="Default select example"
+                onChange={(e) => {
+                  setBusinessType(e.target.value);
+                }}
+              >
+                <option>Tipo businness</option>
+                <option value="SPA">SPA</option>
+                <option value="SRL">SRL</option>
+                <option value="PA">PA</option>
+                <option value="SAS">SAS</option>
+              </Form.Select>
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Partita IVA</Form.Label>
